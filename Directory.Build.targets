@@ -12,7 +12,7 @@
        paketlenen nupkg PackageFolder'a (global NuGet.Config'teki LocalHealthChecks kaynağı) kopyalanır.
        GitHub Packages'a basım kullanılmaz. -->
   <PropertyGroup>
-    <Version>10.0.0</Version>
+    <Version>11.0.0</Version>
     <PackageFolder Condition="'$(PackageFolder)' == ''">H:\Toltek\Packages\HealthChecks\</PackageFolder>
     <GeneratePackageOnBuild Condition="'$(ToltekPack)' == 'true'">true</GeneratePackageOnBuild>
   </PropertyGroup>
