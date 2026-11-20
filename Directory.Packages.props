@@ -72,6 +72,9 @@
     <PackageVersion Include="MongoDB.Driver" Version="3.14.1" />
     <PackageVersion Include="MySqlConnector" Version="3.0.0" />
     <PackageVersion Include="MySqlConnector.DependencyInjection" Version="2.6.2" />
+    <!-- Son kararlı sürüm (2026-11-20). EF Core 11 ile çalışma zamanında uyumsuz: UI.Tests register_mysql
+         MissingMethodException (RelationalTypeMapping.Clone) veriyor. 11.0.0-preview bu testi geçiyor ama ön sürüm;
+         kararlı 11.x çıkınca güncelle. -->
     <PackageVersion Include="MySql.EntityFrameworkCore" Version="10.0.12" />
     <PackageVersion Include="NATS.Net" Version="3.4.1" />
     <!-- Geçişli sabitleme (NuGetAudit NU1903): Hangfire ve Azure DigitalTwin zinciri eski Newtonsoft.Json getiriyor -->
