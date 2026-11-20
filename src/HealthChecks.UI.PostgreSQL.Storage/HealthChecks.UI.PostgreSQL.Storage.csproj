@@ -5,10 +5,17 @@
     <PackageTags>$(PackageTags);PostgreSQL</PackageTags>
     <Description>HealthChecks.UI.PostgreSQL.Storage package contains the required classes to use Postgres NpgSql provider in the UI</Description>
     <VersionPrefix>$(HealthChecksUIPostgreSQLStorage)</VersionPrefix>
+    <!-- Npgsql EF 11.0.0-rc.3 (EF Core 11 için tek sürüm) ön sürümdür ve EF Core rc.3'ü sabitler:
+         NU5104 (kararlı pakette ön sürüm bağımlılığı) ve NU1608 (EF Core GA 11.0.0 kısıtın dışında) beklenir.
+         Kararlı Npgsql EF 11.0.0 çıkınca bu bastırma ve aşağıdaki doğrudan EF başvuruları kaldırılır. -->
+    <NoWarn>$(NoWarn);NU5104;NU1608</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <!-- Doğrudan başvuru EF Core GA 11.0.0'ı kazandırır (yoksa NU1107 sürüm çakışması). -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
   </ItemGroup>
 
   <ItemGroup>
