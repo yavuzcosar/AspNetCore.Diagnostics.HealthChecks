@@ -1,6 +1,5 @@
 using HealthChecks.UI.Image.Configuration;
 using HealthChecks.UI.Image.PushService;
-using Microsoft.AspNetCore.Mvc;
 
 namespace HealthChecks.UI.Image;
 
@@ -15,13 +14,11 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-#pragma warning disable ASP5001, CS0618 // Type or member is obsolete
+        // SetCompatibilityVersion ASP.NET Core 11'de kaldırıldı (ASP5001 ile eskimişti); çağrının etkisi yoktu.
         services
             .AddHealthChecksUI()
             .AddStorageProvider(Configuration)
-            .AddMvc()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-#pragma warning restore ASP5001, CS0618 // Type or member is obsolete
+            .AddMvc();
 
         if (bool.TryParse(Configuration[PushServiceKeys.Enabled], out bool enabled) && enabled)
         {
